@@ -12,7 +12,7 @@ export const setRoutes = (app: Express) => {
 
   app.get('/profile', authentication, profile);
 
-  app.post('/profile/update', authentication, update);
+  app.post('/profile', authentication, update);
 
   app.post('/signup', signup);
 
