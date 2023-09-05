@@ -1,18 +1,11 @@
 import * as mongoose from 'mongoose';
-import { Document, Model } from 'mongoose';
+import { Document } from 'mongoose';
 import { generateHash, isValidCode, isValidEmail, isValidNickname } from './helpers';
 import { Profile } from '../../rest/profile/types';
-
-export type ResetPassword = {
-  code: string;
-  deadline: number;
-};
 
 export type UserMain = Profile & {
   password: string;
 };
-
-export type UserClient = Pick<UserMain, 'name'>;
 
 export type UserMethods = {
   generateHash: (password: string) => Promise<string>;
@@ -22,8 +15,6 @@ export type UserMethods = {
 export type UserNative = UserMain & UserMethods;
 
 export type UserDocument = Document & UserNative;
-
-export type UserType = Model<UserDocument>;
 
 export const UserSchema = new mongoose.Schema<UserDocument>({
   name: {
