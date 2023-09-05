@@ -1,8 +1,7 @@
 import * as mongoose from 'mongoose';
 import { Document, Model } from 'mongoose';
 import { generateHash, isValidCode, isValidEmail, isValidNickname } from './helpers';
-import { ResetPassword } from './ResetPassword';
-import { Profile } from '../../graphql.types';
+import { Profile } from '../../rest/profile/types';
 
 export type ResetPassword = {
   code: string;
@@ -11,7 +10,6 @@ export type ResetPassword = {
 
 export type UserMain = Profile & {
   password: string;
-  resetPassword: ResetPassword;
 };
 
 export type UserClient = Pick<UserMain, 'name'>;
@@ -52,13 +50,6 @@ export const UserSchema = new mongoose.Schema<UserDocument>({
     required: true,
     type: Date,
     default: () => new Date(),
-  },
-  resetPassword: {
-    type: ResetPassword,
-    default: {
-      code: null,
-      deadline: null,
-    },
   },
 });
 

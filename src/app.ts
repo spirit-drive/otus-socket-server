@@ -17,6 +17,7 @@ import { setRoutes } from './rest/setRoutes';
 
   app.use(passport.initialize());
   app.use(express.urlencoded({ extended: true }));
+  app.use(express.json());
   app.use(cors());
 
   setRoutes(app);
