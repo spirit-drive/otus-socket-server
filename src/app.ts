@@ -24,11 +24,7 @@ import { setSocket } from './socket/setSocket';
   app.use(passport.initialize());
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
-  app.use(
-    cors({
-      origin: '*',
-    })
-  );
+  app.use(cors());
 
   setRoutes(app);
 

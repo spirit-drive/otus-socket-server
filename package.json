@@ -10,7 +10,7 @@
     "test": "jest src",
     "build": "tsc --project tsconfig.json",
     "dev": "ts-node-dev src/app.ts",
-    "dev:server": "cross-env PORT=80 MODE=production node build/src/app.js",
+    "dev:server": "cross-env PORT=80 MODE=production node build/app.js",
     "stop": "pm2 stop app",
     "start:stage": "pm2 start ecosystem.config.js --env stage",
     "start": "pm2 start ecosystem.config.js --env production",

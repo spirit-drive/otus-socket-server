@@ -2,7 +2,7 @@ module.exports = {
   apps: [
     {
       name: 'app',
-      script: 'build/src/app.js',
+      script: 'build/app.js',
       env: {
         PORT: '80',
         MODE: 'development',
