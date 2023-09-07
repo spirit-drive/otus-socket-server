@@ -2,6 +2,7 @@ import * as mongoose from 'mongoose';
 import { Document } from 'mongoose';
 import { generateHash, isValidCode, isValidEmail, isValidNickname } from './helpers';
 import { Profile } from '../../rest/profile/types';
+import { saveUserHook } from '../../socket/setSocket';
 
 export type UserMain = Profile & {
   password: string;
@@ -53,4 +54,5 @@ const methods: UserMethods = {
 
 Object.assign(UserSchema.methods, methods);
 
+UserSchema.post('save', saveUserHook);
 export const UserModel = mongoose.model('User', UserSchema);
