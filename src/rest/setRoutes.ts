@@ -6,7 +6,7 @@ import { update } from './profile/update';
 import { authentication } from './authentication';
 
 export const setRoutes = (app: Express) => {
-  app.get('/hello', (req, res) => {
+  app.get('/hello', (_, res) => {
     res.send('hello');
   });
 

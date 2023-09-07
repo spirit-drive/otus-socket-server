@@ -4,17 +4,17 @@ import { UserDocument, UserModel } from '../../models/User';
 import { AccountAlreadyExistError, DataBaseError } from '../../Errors';
 import { getTokenByParams } from '../../utils/helpers';
 
-export const signup: RequestHandler<ParamsDictionary, AuthResult, SignBody> = async (req, res, next) => {
+export const signup: RequestHandler<ParamsDictionary, AuthResult | Error, SignBody> = async (req, res) => {
   const { password, email } = req.body;
 
   let foundUsers;
   try {
     foundUsers = (await UserModel.findOne({ email })) as UserDocument;
   } catch (e) {
-    return next(new DataBaseError(e));
+    return res.status(400).send(new DataBaseError(e));
   }
   if (foundUsers) {
-    return next(new AccountAlreadyExistError(`User with email: ${foundUsers.email} already exist`));
+    return res.status(400).send(new AccountAlreadyExistError(`User with email: ${foundUsers.email} already exist`));
   }
   const user = new UserModel() as UserDocument;
   user.email = email;
@@ -23,7 +23,7 @@ export const signup: RequestHandler<ParamsDictionary, AuthResult, SignBody> = as
   try {
     await user.save();
   } catch (e) {
-    return next(new DataBaseError(e));
+    return res.status(400).send(new DataBaseError(e));
   }
 
   const token = getTokenByParams({ id: user._id });

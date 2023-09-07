@@ -6,13 +6,13 @@ import { getToken } from '../utils/authentication';
 export const authentication: RequestHandler = async (req, res, next) => {
   const { authorization } = req.headers as { authorization: string };
   const token = getToken(authorization);
-  if (token == null) return res.sendStatus(401);
+  if (token == null) return res.status(401).send(new Error(`token is required`));
 
   try {
     const { id: userId } = await getParamsFromToken<{ id: string }>(token);
     req.user = (await UserModel.findById(userId)) as UserDocument;
     next();
   } catch (e) {
-    res.sendStatus(403);
+    res.status(403).send(new Error(`user not found`));
   }
 };
