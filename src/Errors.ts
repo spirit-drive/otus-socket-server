@@ -14,105 +14,105 @@ enum ErrorCode {
 }
 
 export class DataBaseError {
-  code: string;
+  data: string;
   name: string;
   message: string;
   constructor(error: Error) {
-    this.code = ErrorCode.ERR_DATA_BASE_ERROR;
+    this.data = ErrorCode.ERR_DATA_BASE_ERROR;
     this.message = error.message;
     Object.defineProperty(this, 'name', { value: 'DataBaseError' });
   }
 }
 
 export class InvalidNickNameError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_INVALID_NICKNAME;
+    this.data = ErrorCode.ERR_INVALID_NICKNAME;
 
     Object.defineProperty(this, 'name', { value: 'InvalidNickNameError' });
   }
 }
 
 export class JWTError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_JWT_ERROR;
+    this.data = ErrorCode.ERR_JWT_ERROR;
 
     Object.defineProperty(this, 'name', { value: 'JWTError' });
   }
 }
 
 export class TokenRequiredError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_TOKEN_REQUIRED_ERROR;
+    this.data = ErrorCode.ERR_TOKEN_REQUIRED_ERROR;
     Object.defineProperty(this, 'name', { value: 'TokenRequiredError' });
   }
 }
 
 export class IncorrectPasswordOrEmailError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_INCORRECT_EMAIL_OR_PASSWORD;
+    this.data = ErrorCode.ERR_INCORRECT_EMAIL_OR_PASSWORD;
     Object.defineProperty(this, 'name', { value: 'IncorrectPasswordOrEmailError' });
   }
 }
 
 export class IncorrectPasswordError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_INCORRECT_PASSWORD;
+    this.data = ErrorCode.ERR_INCORRECT_PASSWORD;
     Object.defineProperty(this, 'name', { value: 'IncorrectPasswordError' });
   }
 }
 
 export class AccountAlreadyExistError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_ACCOUNT_ALREADY_EXIST;
+    this.data = ErrorCode.ERR_ACCOUNT_ALREADY_EXIST;
 
     Object.defineProperty(this, 'name', { value: 'AccountAlreadyExistError' });
   }
 }
 
 export class InvalidPasswordError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_INVALID_PASSWORD;
+    this.data = ErrorCode.ERR_INVALID_PASSWORD;
     Object.defineProperty(this, 'name', { value: 'InvalidPasswordError' });
   }
 }
 
 export class UserNotFoundError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_USER_NOT_REGISTER;
+    this.data = ErrorCode.ERR_USER_NOT_REGISTER;
     Object.defineProperty(this, 'name', { value: 'UserNotFoundError' });
   }
 }
 
 export class NotFoundError {
-  code: string;
+  data: string;
 
   name: string;
   constructor(public message: string) {
-    this.code = ErrorCode.ERR_NOT_FOUND;
+    this.data = ErrorCode.ERR_NOT_FOUND;
 
     Object.defineProperty(this, 'name', { value: 'NotFoundError' });
   }

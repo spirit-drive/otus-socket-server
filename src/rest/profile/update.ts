@@ -4,7 +4,7 @@ import { UserDocument } from '../../models/User';
 import { prepareProfile } from './prepareProfile';
 import { DataBaseError, InvalidNickNameError } from '../../Errors';
 
-export const update: RequestHandler<ParamsDictionary, Profile | Error> = async (req, res, next) => {
+export const update: RequestHandler<ParamsDictionary, Profile | Error> = async (req, res) => {
   try {
     const user = req.user as UserDocument;
     const { name } = req.body;
