@@ -1,5 +1,5 @@
 import { ParamsDictionary, RequestHandler } from 'express-serve-static-core';
-import { AuthResult, SignBody } from './types';
+import { AuthResult, SignBody } from '../../server.types';
 import { UserDocument, UserModel } from '../../models/User';
 import { DataBaseError, IncorrectPasswordOrEmailError } from '../../Errors';
 import { getTokenByParams } from '../../utils/helpers';

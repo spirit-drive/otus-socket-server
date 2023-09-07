@@ -1,5 +1,5 @@
 import { ParamsDictionary, RequestHandler } from 'express-serve-static-core';
-import { Profile } from './types';
+import { Profile } from '../../server.types';
 import { UserDocument } from '../../models/User';
 import { prepareProfile } from './prepareProfile';
 import { DataBaseError, InvalidNickNameError } from '../../Errors';

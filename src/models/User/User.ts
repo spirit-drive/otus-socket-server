@@ -1,7 +1,7 @@
 import * as mongoose from 'mongoose';
 import { Document } from 'mongoose';
 import { generateHash, isValidCode, isValidEmail, isValidNickname } from './helpers';
-import { Profile } from '../../rest/profile/types';
+import { Profile } from '../../server.types';
 import { saveUserHook } from '../../socket/setSocket';
 
 export type UserMain = Profile & {

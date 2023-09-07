@@ -1,5 +1,5 @@
 import { UserDocument } from '../../models/User';
-import { Profile } from './types';
+import { Profile } from '../../server.types';
 
 export const prepareProfile = (item: UserDocument): Profile =>
   item

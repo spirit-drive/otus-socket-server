@@ -1,5 +1,5 @@
 import { ParamsDictionary, RequestHandler } from 'express-serve-static-core';
-import { Profile } from './types';
+import { Profile } from '../../server.types';
 import { prepareProfile } from './prepareProfile';
 import { UserDocument } from '../../models/User';
 
