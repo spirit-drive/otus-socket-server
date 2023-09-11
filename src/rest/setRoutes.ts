@@ -6,15 +6,15 @@ import { update } from './profile/update';
 import { authentication } from './authentication';
 
 export const setRoutes = (app: Express) => {
-  app.get('/hello', (_, res) => {
+  app.get('/api/hello', (_, res) => {
     res.send('hello');
   });
 
-  app.get('/profile', authentication, profile);
+  app.get('/api/profile', authentication, profile);
 
-  app.post('/profile', authentication, update);
+  app.post('/api/profile', authentication, update);
 
-  app.post('/signup', signup);
+  app.post('/api/signup', signup);
 
-  app.post('/signin', signin);
+  app.post('/api/signin', signin);
 };
