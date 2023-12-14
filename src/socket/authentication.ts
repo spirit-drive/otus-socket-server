@@ -1,4 +1,4 @@
-import { getParamsFromToken } from '../utils/helpers';
+import { getParamsFromToken, getTokenByParams } from '../utils/helpers';
 import { UserDocument, UserModel } from '../models/User';
 import { getToken } from '../utils/authentication';
 import { Socket } from 'socket.io/dist/socket';
@@ -6,7 +6,7 @@ import { ExtendedError } from 'socket.io/dist/namespace';
 import { TokenRequiredError, UserNotFoundError } from '../Errors';
 
 export const authentication = async (socket: Socket, next: (err?: ExtendedError) => void) => {
-  const authorization = socket.handshake.auth.token;
+  const authorization = socket.handshake.query.token as string;
   const token = getToken(authorization);
   if (!token) return next(new TokenRequiredError('token is required'));
 

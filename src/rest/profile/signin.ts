@@ -10,7 +10,7 @@ export const signin: RequestHandler<ParamsDictionary, AuthResult | Error, SignBo
   try {
     user = (await UserModel.findOne({ email })) as UserDocument;
   } catch (e) {
-    return res.status(400).send(new DataBaseError(e));
+    return res.status(404).send(new DataBaseError(e));
   }
   if (!user || !user.isRightPassword(password)) {
     return res.status(400).send(new IncorrectPasswordOrEmailError('User not found or invalid password') as Error);
